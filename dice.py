@@ -57,3 +57,14 @@ def dice_roll(command_str):
     while not dice:
         dice = dice_get_command(command_str)
 
+    # dice [x, y] or dice [x, y, '+'/'-', z]
+    dice_value = 0
+    for n in range(dice[0]):  # number rolling
+        roll_v=randint(1, dice[1])
+        print(roll_v)
+        dice_value += roll_v
+
+    return dice_value
+
+
+print( dice_roll('2d20-10'))
