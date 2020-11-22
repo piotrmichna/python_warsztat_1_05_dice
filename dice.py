@@ -11,7 +11,7 @@ def dice_get_command(str_command):
 
     # geting X
     l_command = d_command.split('D')
-    if l_command[0] == '' or l_command[0]=='0':
+    if l_command[0] == '' or l_command[0] == '0':
         dice.append(1)
     else:
         try:
@@ -38,6 +38,7 @@ def dice_get_command(str_command):
             return False
     else:
         try:
+
             dice.append(int(l_command[1]))
         except ValueError:
             print("Błędne parametry kości")
@@ -51,4 +52,8 @@ def dice_get_command(str_command):
     return dice
 
 
-print(dice_get_command('z0d4'))
+def dice_roll(command_str):
+    dice = []
+    while not dice:
+        dice = dice_get_command(command_str)
+
