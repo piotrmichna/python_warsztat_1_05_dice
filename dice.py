@@ -60,11 +60,18 @@ def dice_roll(command_str):
     # dice [x, y] or dice [x, y, '+'/'-', z]
     dice_value = 0
     for n in range(dice[0]):  # number rolling
-        roll_v=randint(1, dice[1])
+        roll_v = randint(1, dice[1])
         print(roll_v)
         dice_value += roll_v
+
+    # dice [x, y, '+'/'-', z]
+    if len(dice) > 2:
+        if dice[2] == '+':
+            dice_value += dice[3]
+        else:
+            dice_value -= dice[3]
 
     return dice_value
 
 
-print( dice_roll('2d20-10'))
+print(dice_roll('2d20-10'))
