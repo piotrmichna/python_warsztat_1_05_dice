@@ -26,7 +26,11 @@ def dice_get_command(str_command):
     else:
         dice.append(int(l_command[1]))
 
-
+    # dice type
+    print(dice)
+    if not dice[1] in [3, 4, 6, 8, 10, 12, 20, 100]:
+        print(f'Nie znam kostki {dice[1]}-ściennej!')
+        return False
 
     return dice
 
