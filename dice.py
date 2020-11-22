@@ -14,17 +14,34 @@ def dice_get_command(str_command):
     if l_command[0] == '' or l_command[0]=='0':
         dice.append(1)
     else:
-        dice.append(int(l_command[0]))
+        try:
+            dice.append(int(l_command[0]))
+        except ValueError:
+            print('Błędna ilość rzutów')
+            return False
 
     # geting Y,Z
     if '+' in l_command[1]:
         z = l_command[1].split('+')
-        dice += [int(z[0]), '+', int(z[1])]
+        try:
+            dice += [int(z[0]), '+', int(z[1])]
+        except ValueError:
+            print("Błędne parametry kości")
+            return False
+
     elif '-' in l_command[1]:
         z = l_command[1].split('-')
-        dice += [int(z[0]), '-', int(z[1])]
+        try:
+            dice += [int(z[0]), '-', int(z[1])]
+        except ValueError:
+            print("Błędne parametry kości")
+            return False
     else:
-        dice.append(int(l_command[1]))
+        try:
+            dice.append(int(l_command[1]))
+        except ValueError:
+            print("Błędne parametry kości")
+            return False
 
     # dice type
     if not dice[1] in [3, 4, 6, 8, 10, 12, 20, 100]:
@@ -34,4 +51,4 @@ def dice_get_command(str_command):
     return dice
 
 
-print(dice_get_command('0d4'))
+print(dice_get_command('z0d4'))
