@@ -16,6 +16,17 @@ def dice_get_command(str_command):
     else:
         dice.append(int(l_command[0]))
 
+    # geting Y,Z
+    if '+' in l_command[1]:
+        z = l_command[1].split('+')
+        dice += [int(z[0]), '+', int(z[1])]
+    elif '-' in l_command[1]:
+        z = l_command[1].split('-')
+        dice += [int(z[0]), '-', int(z[1])]
+    else:
+        dice.append(int(l_command[1]))
+
+
 
     return dice
 
