@@ -9,8 +9,15 @@ def dice_get_command(str_command):
     if 'D' not in d_command:
         return False
 
+    # geting X
+    l_command = d_command.split('D')
+    if l_command[0] == '':
+        dice.append(1)
+    else:
+        dice.append(int(l_command[0]))
 
 
     return dice
 
 
+print(dice_get_command('2d4'))
