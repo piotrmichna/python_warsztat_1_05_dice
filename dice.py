@@ -11,7 +11,7 @@ def dice_get_command(str_command):
 
     # geting X
     l_command = d_command.split('D')
-    if l_command[0] == '':
+    if l_command[0] == '' or l_command[0]=='0':
         dice.append(1)
     else:
         dice.append(int(l_command[0]))
@@ -27,7 +27,6 @@ def dice_get_command(str_command):
         dice.append(int(l_command[1]))
 
     # dice type
-    print(dice)
     if not dice[1] in [3, 4, 6, 8, 10, 12, 20, 100]:
         print(f'Nie znam kostki {dice[1]}-ściennej!')
         return False
@@ -35,4 +34,4 @@ def dice_get_command(str_command):
     return dice
 
 
-print(dice_get_command('2d4'))
+print(dice_get_command('0d4'))
