@@ -60,9 +60,9 @@ def dice_roll(command_str):
     # dice [x, y] or dice [x, y, '+'/'-', z]
     dice_value = 0
     for n in range(dice[0]):  # number rolling
-        roll_v = randint(1, dice[1])
-        print(roll_v)
-        dice_value += roll_v
+        # roll_v = randint(1, dice[1])
+        # print(roll_v)
+        dice_value += randint(1, dice[1])
 
     # dice [x, y, '+'/'-', z]
     if len(dice) > 2:
@@ -74,12 +74,17 @@ def dice_roll(command_str):
     return dice_value
 
 
-for n in range(1, 9):
-    com = str(n) + 'D10'
+def dice_9x_roll():
+    for n in range(1, 10):
+        com = str(n) + 'D10'
 
-    if n % 3 == 2:
-        com += '+' + str(randint(1, 20))
-    elif n % 3 == 1:
-        com += '-' + str(randint(1, 20))
+        if n % 3 == 2:
+            com += '+' + str(randint(1, 20))
+        elif n % 3 == 1:
+            com += '-' + str(randint(1, 20))
 
-    print(f'dice_roll("{com}")={dice_roll(com)}')
+        print(f'{n}. dice_roll("{com}") = {dice_roll(com)}')
+
+
+if __name__ == '__main__':
+    dice_9x_roll()
