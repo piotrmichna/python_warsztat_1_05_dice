@@ -74,4 +74,12 @@ def dice_roll(command_str):
     return dice_value
 
 
-print(dice_roll('2d20-10'))
+for n in range(1, 9):
+    com = str(n) + 'D10'
+
+    if n % 3 == 2:
+        com += '+' + str(randint(1, 20))
+    elif n % 3 == 1:
+        com += '-' + str(randint(1, 20))
+
+    print(f'dice_roll("{com}")={dice_roll(com)}')
